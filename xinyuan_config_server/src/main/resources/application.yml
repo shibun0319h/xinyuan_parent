@@ -1,0 +1,18 @@
+server:
+  port: 1299
+eureka:
+  client:
+    service-url:
+      defaultZone: http://www.eureka-7001.com:7001/eureka/
+  instance:
+    prefer-ip-address: true
+spring:
+  application:
+    name: xinyuan-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/shibun0319h/xinyuan_config.git  #git文件地址
+          username: shibun0319@gmail.com
+          password: hezhiwen940319
