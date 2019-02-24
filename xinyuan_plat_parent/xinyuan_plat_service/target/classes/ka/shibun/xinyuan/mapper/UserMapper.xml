@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="ka.shibun.xinyuan.mapper.UserMapper" >
+  <resultMap id="BaseResultMap" type="ka.shibun.xinyuan.domain.User" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="age" property="age" jdbcType="BIGINT" />
+    <result column="sex" property="sex" jdbcType="BIT" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from t_user
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="ka.shibun.xinyuan.domain.User" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="BEFORE" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_user (id, name, age, 
+      sex)
+    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{age,jdbcType=BIGINT}, 
+      #{sex,jdbcType=BIT})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="ka.shibun.xinyuan.domain.User" >
+    update t_user
+    set name = #{name,jdbcType=VARCHAR},
+      age = #{age,jdbcType=BIGINT},
+      sex = #{sex,jdbcType=BIT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select id, name, age, sex
+    from t_user
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, name, age, sex
+    from t_user
+  </select>
+</mapper>
