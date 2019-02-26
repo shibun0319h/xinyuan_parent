@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>xinyuan_basic_util</module>
+        <module>xinyuan_basic_generate</module>
     </modules>
 
 

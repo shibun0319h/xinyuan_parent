@@ -1,30 +1,29 @@
-/**
- * Copyright (C), 2015-2019, XXX有限公司
- * FileName: Employee
- * Author:   shibun
- * Date:     2019/2/23 16:40
- * Description: 用户类
- * History:
- * <author>          <time>          <version>          <desc>
- * 作者姓名           修改时间           版本号              描述
- */
 package ka.shibun.xinyuan.domain;
 
+import com.baomidou.mybatisplus.enums.IdType;
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.activerecord.Model;
+import com.baomidou.mybatisplus.annotations.TableName;
+import java.io.Serializable;
+
 /**
- *
- * 用户类
+ * <p>
+ * 
+ * </p>
  *
  * @author shibun
- * @create 2019/2/23
- * @since 1.0.0
+ * @since 2019-02-26
  */
-public class Employee {
+@TableName("t_employee")
+public class Employee extends Model<Employee> {
 
+    private static final long serialVersionUID = 1L;
+
+    @TableId(value = "id", type = IdType.AUTO)
     private Long id;
-
     private String username;
-
     private String password;
+
 
     public Long getId() {
         return id;
@@ -48,5 +47,19 @@ public class Employee {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Override
+    protected Serializable pkVal() {
+        return this.id;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+        ", id=" + id +
+        ", username=" + username +
+        ", password=" + password +
+        "}";
     }
 }
