@@ -38,7 +38,7 @@ public class EmployeeController {
     @RequestMapping(value = "/login",method = RequestMethod.POST)
     public AjaxResult login(@RequestBody Employee employee){
         Employee login = employeeService.login(employee);
-        //模拟登陆
+
         if(login!=null){
             return AjaxResult.me().setSuccess(true).setMsg("登陆成功").setObj(employee);
         }else {

@@ -1,9 +1,0 @@
-# 数据源的配置
-spring:
-  datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql:///xinyuan
-    username: root
-    password: shibun
-mybatis-plus:
-  type-aliases-package: ka.shibun.xinyuan.domain  #别名的配置

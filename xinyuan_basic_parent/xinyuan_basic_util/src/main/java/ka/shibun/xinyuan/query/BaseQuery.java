@@ -28,6 +28,11 @@ public class BaseQuery {
     //查询的关键字
     private String keyword;
 
+    public Integer getStart() {
+        // (page-1)*size
+        return (this.page-1)*this.rows;
+    }
+
     public Integer getPage() {
         return page;
     }
@@ -42,14 +47,6 @@ public class BaseQuery {
 
     public void setRows(Integer rows) {
         this.rows = rows;
-    }
-
-    public Integer getStart() {
-        return start;
-    }
-
-    public void setStart(Integer start) {
-        this.start = start;
     }
 
     public String getKeyword() {
