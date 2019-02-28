@@ -40,7 +40,7 @@ public class EmployeeController {
         Employee login = employeeService.login(employee);
         //模拟登陆
         if(login!=null){
-            return AjaxResult.me().setSuccess(true).setMsg("登陆成功");
+            return AjaxResult.me().setSuccess(true).setMsg("登陆成功").setObj(employee);
         }else {
             return AjaxResult.me().setSuccess(false).setMsg("登陆失败");
         }

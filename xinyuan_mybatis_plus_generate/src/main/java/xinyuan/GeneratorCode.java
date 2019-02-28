@@ -8,7 +8,7 @@
  * <author>          <time>          <version>          <desc>
  * 作者姓名           修改时间           版本号              描述
  */
-package ka.shibun.xinyuan;
+package xinyuan;
 
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.InjectionConfig;
@@ -64,7 +64,7 @@ public class GeneratorCode {
         StrategyConfig strategy = new StrategyConfig();
         strategy.setTablePrefix(new String[] { "t_" });// 此处可以修改为您的表前缀
         strategy.setNaming(NamingStrategy.underline_to_camel);// 表名生成策略
-        strategy.setInclude(new String[]{"t_employee"}); // 需要生成的表
+        strategy.setInclude(new String[]{"t_brand","t_product","t_product_type"}); // 需要生成的表
         mpg.setStrategy(strategy);
 
 
@@ -95,6 +95,19 @@ public class GeneratorCode {
             @Override
             public String outputFile(TableInfo tableInfo) {
                 return rb.getString("OutputDirBase")+ "/ka/shibun/xinyuan/domain/" + tableInfo.getEntityName() + ".java";
+            }
+        });
+        // 调整 query 生成目录演示
+        focList.add(new FileOutConfig("/templates/query.java.vm") {
+            @Override
+            public String outputFile(TableInfo tableInfo) {
+                return rb.getString("OutputDirBase")+ "/ka/shibun/xinyuan/query/" + tableInfo.getEntityName() + "Query.java";
+            }
+        }); // 调整 controller 生成目录演示
+        focList.add(new FileOutConfig("/templates/controller.java.vm") {
+            @Override
+            public String outputFile(TableInfo tableInfo) {
+                return rb.getString("OutputDir")+ "/ka/shibun/xinyuan/controller/" + tableInfo.getEntityName() + "Controller.java";
             }
         });
 

@@ -1,0 +1,10 @@
+package ka.shibun.xinyuan.query;
+
+import ka.shibun.xinyuan.query.BaseQuery;
+/**
+ *
+ * @author ${author}
+ * @since ${date}
+ */
+public class ${table.entityName}Query extends BaseQuery{
+}
