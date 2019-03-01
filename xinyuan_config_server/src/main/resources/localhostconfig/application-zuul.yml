@@ -1,0 +1,50 @@
+spring:
+  profiles:
+    active: dev
+---
+spring:
+  profiles: dev
+  application:
+      name: microservice-zuul-gateway
+server:
+  port: 9527
+eureka:
+  client:
+    service-url:
+      defaultZone: http://www.eureka-7001.com:7001/eureka/
+  instance:
+    instance-id: GATEWAY-9527.COM
+    prefer-ip-address: true
+zuul:
+  routes:
+    xinyuanEmployee.serviceId: XINYUAN-EMPLOYEE
+    xinyuanEmployee.path: /employee/**  # 匹配 /xxx开头的请求映射到user-provider服务上
+    #产品服务的路由
+    xinyuanProduct.serviceId: XINYUAN-PRODUCT
+    xinyuanProduct.path: /product/**
+  ignored-services: "*" #user-provider #忽略直接使用服务名访问  *忽略所有的
+  prefix: /xinyuan   # 访问前缀
+
+---
+spring:
+  profiles: test
+  application:
+      name: microservice-zuul-gateway-test
+server:
+  port: 9528
+eureka:
+  client:
+    service-url:
+      defaultZone: http://www.eureka-7001.com:7001/eureka/
+  instance:
+    instance-id: GATEWAY-9527.COM
+    prefer-ip-address: true
+zuul:
+  routes:
+    xinyuanEmployee.serviceId: XINYUAN-EMPLOYEE
+    xinyuanEmployee.path: /employee/**  # 匹配 /xxx开头的请求映射到user-provider服务上
+    xinyuanProduct.serviceId: XINYUAN-PRODUCT
+    xinyuanProduct.path: /product/**
+  ignored-services: "*" #user-provider #忽略直接使用服务名访问  *忽略所有的
+  prefix: /xinyuan   # 访问前缀
+

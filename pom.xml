@@ -16,6 +16,7 @@
         <module>xinyuan_zuul_server</module>
         <module>xinyuan_mybatis_plus_generate</module>
         <module>xinyuan_product_parent</module>
+        <module>xinyuan_common_parent</module>
     </modules>
     
     <properties>

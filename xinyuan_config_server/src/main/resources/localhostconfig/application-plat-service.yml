@@ -1,0 +1,46 @@
+spring:
+  profiles:
+    active: dev
+---
+spring:
+  profiles: dev
+  application:
+    name: XINYUAN-EMPLOYEE
+# 数据源的配置
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/xinyuan?useUnicode=true&characterEncoding=UTF-8  #防止中文乱码
+    username: root
+    password: shibun
+mybatis-plus:
+  type-aliases-package: ka.shibun.xinyuan.domain  #别名的配置
+server:
+  port: 8001
+eureka:
+  client:
+    service-url:
+      defaultZone: http://www.eureka-7001.com:7001/eureka  #告诉服务提供者要把服务注册到哪儿 #单机环境
+  instance:
+    prefer-ip-address: true #显示客户端真实ip
+
+---
+spring:
+  profiles: test
+  application:
+    name: XINYUAN-EMPLOYEE-TEST
+  # 数据源的配置
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/xinyuan?useUnicode=true&characterEncoding=UTF-8  #防止中文乱码
+    username: root
+    password: shibun
+mybatis-plus:
+  type-aliases-package: ka.shibun.xinyuan.domain  #别名的配置
+server:
+  port: 8101
+eureka:
+  client:
+    service-url:
+      defaultZone: http://www.eureka-7001.com:7001/eureka  #告诉服务提供者要把服务注册到哪儿 #单机环境
+  instance:
+    prefer-ip-address: true #显示客户端真实ip
