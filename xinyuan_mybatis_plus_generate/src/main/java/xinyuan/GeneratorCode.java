@@ -64,7 +64,7 @@ public class GeneratorCode {
         StrategyConfig strategy = new StrategyConfig();
         strategy.setTablePrefix(new String[] { "t_" });// 此处可以修改为您的表前缀
         strategy.setNaming(NamingStrategy.underline_to_camel);// 表名生成策略
-        strategy.setInclude(new String[]{"t_brand","t_product","t_product_type"}); // 需要生成的表
+        strategy.setInclude(new String[]{"t_product_ext","t_product_media","t_specification"}); // 需要生成的表
         mpg.setStrategy(strategy);
 
 

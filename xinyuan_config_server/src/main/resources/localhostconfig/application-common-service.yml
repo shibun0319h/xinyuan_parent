@@ -1,0 +1,35 @@
+spring:
+  profiles:
+    active: dev
+---
+spring:
+  profiles: dev
+  application:
+    name: XINYUAN-COMMON
+
+
+server:
+  port: 9001
+  max-http-header-size: 4048576 #Request header is too large异常解决
+eureka:
+  client:
+    service-url:
+      defaultZone: http://www.eureka-7001.com:7001/eureka  #告诉服务提供者要把服务注册到哪儿 #单机环境
+  instance:
+    prefer-ip-address: true #显示客户端真实ip
+
+---
+spring:
+  profiles: test
+  application:
+    name: XINYUAN-COMMON-TEST
+
+server:
+  port: 9101
+  max-http-header-size: 4048576 #Request header is too large异常解决
+eureka:
+  client:
+    service-url:
+      defaultZone: http://www.eureka-7001.com:7001/eureka  #告诉服务提供者要把服务注册到哪儿 #单机环境
+  instance:
+    prefer-ip-address: true #显示客户端真实ip

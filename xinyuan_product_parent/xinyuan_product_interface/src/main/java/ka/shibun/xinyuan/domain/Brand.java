@@ -43,7 +43,7 @@ public class Brand extends Model<Brand> {
     @TableField("product_type_id")
     private Long productTypeId;
 
-    @TableField(exist = true)
+    @TableField(exist = false)
     private ProductType productType;
     private Integer sortIndex;
     /**

@@ -22,6 +22,9 @@ zuul:
     #产品服务的路由
     xinyuanProduct.serviceId: XINYUAN-PRODUCT
     xinyuanProduct.path: /product/**
+    #公共服务的路由
+    xinyuanCommon.serviceId: XINYUAN-COMMON
+    xinyuanCommon.path: /common/**
   ignored-services: "*" #user-provider #忽略直接使用服务名访问  *忽略所有的
   prefix: /xinyuan   # 访问前缀
 
@@ -45,6 +48,9 @@ zuul:
     xinyuanEmployee.path: /employee/**  # 匹配 /xxx开头的请求映射到user-provider服务上
     xinyuanProduct.serviceId: XINYUAN-PRODUCT
     xinyuanProduct.path: /product/**
+    #公共服务的路由
+    xinyuanCommon.serviceId: XINYUAN-COMMON
+    xinyuanCommon.path: /common/**
   ignored-services: "*" #user-provider #忽略直接使用服务名访问  *忽略所有的
   prefix: /xinyuan   # 访问前缀
 

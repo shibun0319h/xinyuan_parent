@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.activerecord.Model;
 import com.baomidou.mybatisplus.annotations.TableName;
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 
 /**
  * <p>
@@ -45,10 +46,18 @@ public class Product extends Model<Product> {
      * 上架时间
      */
     private Long onSaleTime;
+
+    //上架时间格式转换
+    @TableField(exist = false)
+    private String onSaleTimeStr;
     /**
      * 下架时间
      */
     private Long offSaleTime;
+
+    //下架时间格式转换
+    @TableField(exist = false)
+    private String offSaleTimeStr;
     @TableField("brand_id")
     private Long brandId;
     /**
@@ -87,6 +96,48 @@ public class Product extends Model<Product> {
     private Integer commonCommentCount;
     private Integer badCommentCount;
 
+    @TableField(exist = false)
+    private ProductExt productExt;
+
+    public ProductExt getProductExt() {
+        return productExt;
+    }
+
+    public void setProductExt(ProductExt productExt) {
+        this.productExt = productExt;
+    }
+
+    //上架时间转换
+    public String getOnSaleTimeStr() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        if(offSaleTime==null){
+            return null;
+        }else {
+            //如果有值就转换为指定格式展示
+            return sdf.format(onSaleTime);
+        }
+    }
+
+    //下架时间转换
+
+
+    public String getOffSaleTimeStr() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        if(offSaleTime==null){
+            return null;
+        }else {
+            //如果有值就转换为指定格式展示
+            return sdf.format(offSaleTime);
+        }
+    }
+
+    public void setOffSaleTimeStr(String offSaleTimeStr) {
+        this.offSaleTimeStr = offSaleTimeStr;
+    }
+
+    public void setOnSaleTimeStr(String onSaleTimeStr) {
+        this.onSaleTimeStr = onSaleTimeStr;
+    }
 
     public Long getId() {
         return id;

@@ -2,6 +2,8 @@ package ka.shibun.xinyuan.service;
 
 import ka.shibun.xinyuan.domain.Product;
 import com.baomidou.mybatisplus.service.IService;
+import ka.shibun.xinyuan.query.ProductQuery;
+import ka.shibun.xinyuan.util.PageList;
 
 /**
  * <p>
@@ -13,4 +15,5 @@ import com.baomidou.mybatisplus.service.IService;
  */
 public interface IProductService extends IService<Product> {
 
+    PageList<Product> selectQuery(ProductQuery query);
 }

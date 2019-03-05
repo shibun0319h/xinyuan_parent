@@ -11,5 +11,18 @@
 
     <artifactId>xinyuan_common_interface</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>ka.shibun.xinyuan</groupId>
+            <artifactId>xinyuan_basic_util</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!--feign的支持-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+
+    </dependencies>
 
 </project>

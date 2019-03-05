@@ -95,7 +95,8 @@ public class ProductTypeController {
 
         //使用递归
         //return productTypeService.treeData();
-        //使用循环
+        //使用循环,并使用redis缓存
         return  productTypeService.treeLoop();
+
     }
 }

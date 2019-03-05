@@ -2,6 +2,9 @@ package ka.shibun.xinyuan.mapper;
 
 import ka.shibun.xinyuan.domain.Product;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
+import ka.shibun.xinyuan.query.ProductQuery;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,7 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
  */
 public interface ProductMapper extends BaseMapper<Product> {
 
+    List<Product> queryPage(ProductQuery query);
+
+    long queryPageCount(ProductQuery query);
 }
